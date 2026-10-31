@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brightloop | Staff Portal</title>
+  <link rel="stylesheet" href="staff.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="#dashboard">
+      <span class="brand-name">Brightloop</span>
+      <span class="brand-subtitle">Software</span>
+    </a>
+
+    <div class="profile">
+      <div class="avatar">S</div>
+      <div><strong>Staff Account</strong><small>Staff Portal</small></div>
+    </div>
+
+    <p class="nav-heading">WORKSPACE</p>
+    <nav class="navigation" aria-label="Staff navigation">
+      <a href="#dashboard" class="nav-link">▦ <span>Dashboard</span></a>
+      <a href="#customers" class="nav-link">♙ <span>Customers</span></a>
+      <a href="#quotations" class="nav-link">▤ <span>Quotations</span></a>
+      <a href="#subscriptions" class="nav-link">⟳ <span>Subscriptions</span></a>
+      <a href="#invoices" class="nav-link">▧ <span>Invoices</span></a>
+      <a href="#payments" class="nav-link">₹ <span>Payments</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="#notifications" class="nav-link">♧ <span>Notifications</span></a>
+      <!-- Sign out returns to the existing login page. -->
+      <a href="login/index.html" class="nav-link signout-link">↪ <span>Sign Out</span></a>
+    </div>
+
+    <div class="sidebar-footer">BRIGHTLOOP SOFTWARE<small>Staff Portal</small></div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="breadcrumb">Workspace / Staff Portal</p>
+        <h1>Staff Dashboard</h1>
+      </div>
+      <div class="topbar-right">
+        <a href="#notifications" class="notification" aria-label="Notifications">♧</a>
+        <div class="avatar small-avatar">S</div>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page-section dashboard-section">
+      <div class="welcome">
+        <div>
+          <p class="eyebrow">OVERVIEW</p>
+          <h2>Welcome to Brightloop.</h2>
+          <p>Manage customer operations from one place.</p>
+        </div>
+        <a href="#customers" class="primary-button">+ Add Customer</a>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total Customers</span><span class="stat-icon">♙</span></div><h2>—</h2><p>Customer overview</p></article>
+        <article class="stat-card"><div class="stat-top"><span>Active Subscriptions</span><span class="stat-icon">⟳</span></div><h2>—</h2><p>Subscription overview</p></article>
+        <article class="stat-card"><div class="stat-top"><span>Pending Payments</span><span class="stat-icon">₹</span></div><h2>—</h2><p>Payment overview</p></article>
+        <article class="stat-card"><div class="stat-top"><span>Pending Quotations</span><span class="stat-icon">▤</span></div><h2>—</h2><p>Quotation overview</p></article>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="panel">
+          <div class="panel-heading"><div><h3>Recent Activity</h3><p>Overview of recent operations</p></div></div>
+          <div class="empty-state"><span>▤</span><p>Activity will appear here.</p></div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading"><div><h3>Quick Actions</h3><p>Frequently used operations</p></div></div>
+          <div class="quick-actions">
+            <a href="#customers">+ Add Customer</a>
+            <a href="#quotations">+ Create Quotation</a>
+            <a href="#subscriptions">Manage Subscriptions</a>
+            <a href="#invoices">View Invoices</a>
+            <a href="#payments">View Payments</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="customers" class="page-section">
+      <div class="section-heading"><div><p class="eyebrow">CUSTOMER MANAGEMENT</p><h2>Customers</h2><p>Manage customer information and records.</p></div><button class="primary-button" type="button">+ Add Customer</button></div>
+      <div class="panel">
+        <div class="toolbar"><input type="search" placeholder="Search customers..." aria-label="Search customers"><select aria-label="Filter customers"><option>All Customers</option><option>Active</option><option>Inactive</option></select></div>
+        <div class="table-wrapper"><table><thead><tr><th>Customer ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table></div>
+        <div class="empty-state"><span>♙</span><p>No customer records to display.</p></div>
+      </div>
+    </section>
+
+    <section id="quotations" class="page-section">
+      <div class="section-heading"><div><p class="eyebrow">SALES MANAGEMENT</p><h2>Quotations</h2><p>Create and manage customer quotations.</p></div><button class="primary-button" type="button">+ New Quotation</button></div>
+      <div class="panel">
+        <div class="toolbar"><input type="search" placeholder="Search quotations..." aria-label="Search quotations"><select aria-label="Filter quotations"><option>All Quotations</option><option>Pending</option><option>Accepted</option><option>Rejected</option></select></div>
+        <div class="table-wrapper"><table><thead><tr><th>Quotation ID</th><th>Customer</th><th>Plan</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table></div>
+        <div class="empty-state"><span>▤</span><p>No quotations to display.</p></div>
+      </div>
+    </section>
+
+    <section id="subscriptions" class="page-section">
+      <div class="section-heading"><div><p class="eyebrow">SUBSCRIPTION MANAGEMENT</p><h2>Subscriptions</h2><p>Monitor and manage customer subscriptions.</p></div></div>
+      <div class="panel">
+        <div class="toolbar"><input type="search" placeholder="Search subscriptions..." aria-label="Search subscriptions"><select aria-label="Filter subscriptions"><option>All Subscriptions</option><option>Active</option><option>Paused</option><option>Expired</option><option>Closed</option></select></div>
+        <div class="table-wrapper"><table><thead><tr><th>Subscription ID</th><th>Customer</th><th>Plan</th><th>Start Date</th><th>End Date</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table></div>
+        <div class="empty-state"><span>⟳</span><p>No subscriptions to display.</p></div>
+      </div>
+    </section>
+
+    <section id="invoices" class="page-section">
+      <div class="section-heading"><div><p class="eyebrow">BILLING MANAGEMENT</p><h2>Invoices</h2><p>Create and manage customer invoices.</p></div><button class="primary-button" type="button">+ Create Invoice</button></div>
+      <div class="panel">
+        <div class="toolbar"><input type="search" placeholder="Search invoices..." aria-label="Search invoices"><select aria-label="Filter invoices"><option>All Invoices</option><option>Paid</option><option>Unpaid</option><option>Overdue</option></select></div>
+        <div class="table-wrapper"><table><thead><tr><th>Invoice ID</th><th>Customer</th><th>Amount</th><th>Issue Date</th><th>Due Date</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table></div>
+        <div class="empty-state"><span>▧</span><p>No invoices to display.</p></div>
+      </div>
+    </section>
+
+    <section id="payments" class="page-section">
+      <div class="section-heading"><div><p class="eyebrow">TRANSACTION MANAGEMENT</p><h2>Payments</h2><p>View and manage customer transactions.</p></div></div>
+      <div class="panel">
+        <div class="toolbar"><input type="search" placeholder="Search transactions..." aria-label="Search transactions"><select aria-label="Filter payments"><option>All Payments</option><option>Successful</option><option>Pending</option><option>Failed</option></select></div>
+        <div class="table-wrapper"><table><thead><tr><th>Transaction ID</th><th>Customer</th><th>Invoice ID</th><th>Amount</th><th>Payment Date</th><th>Method</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+        <div class="empty-state"><span>₹</span><p>No payment records to display.</p></div>
+      </div>
+    </section>
+
+    <section id="notifications" class="page-section">
+      <div class="section-heading"><div><p class="eyebrow">UPDATES</p><h2>Notifications</h2><p>View important system notifications.</p></div></div>
+      <div class="panel"><div class="empty-state"><span>♧</span><p>No notifications to display.</p></div></div>
+    </section>
+
+    <footer class="main-footer">© 2026 Brightloop Software. All rights reserved.</footer>
+  </main>
+</div>
+</body>
+</html>
