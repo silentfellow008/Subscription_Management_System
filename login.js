@@ -14,17 +14,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ email, password })
             });
 
-            if (!data.access) {
-                throw new Error("Access token not received.");
+            // Save JWT tokens
+            sessionStorage.setItem("access", data.access);
+            sessionStorage.setItem("refresh", data.refresh);
+
+            // Save user details
+            sessionStorage.setItem("user", JSON.stringify(data.user));
+
+            // Redirect according to role
+            if (data.user.role === "ADMIN") {
+                window.location.href = "admin.html";
+            } 
+            else if (data.user.role === "STAFF") {
+                window.location.href = "staff.html";
+            } 
+            else {
+                window.location.href = "customer.html";
             }
 
-            sessionStorage.setItem("access", data.access);
-
-            window.location.href = "customer.html";
-
         } catch (error) {
-            console.error("Login failed:", error);
-            alert(error.detail || error.message || "Login failed. Try again.");
+            console.error("Login error:", error);
+
+            alert(
+                error.email?.[0] ||
+                error.password?.[0] ||
+                error.detail ||
+                error.non_field_errors?.[0] ||
+                "Login failed. Please check your credentials."
+            );
         }
     });
 });
