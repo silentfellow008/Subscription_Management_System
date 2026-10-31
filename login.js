@@ -1,9 +1,20 @@
+console.log("LOGIN JS LOADED");
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM READY");
+
     const loginForm = document.getElementById("login-form");
+
+    if (!loginForm) {
+        console.error("LOGIN FORM NOT FOUND");
+        return;
+    }
+
+    console.log("LOGIN FORM FOUND");
 
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
+        console.log("SIGN IN BUTTON CLICKED");
 
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value;
@@ -14,27 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ email, password })
             });
 
-            // Save JWT tokens
             sessionStorage.setItem("access", data.access);
             sessionStorage.setItem("refresh", data.refresh);
-
-            // Save user details
             sessionStorage.setItem("user", JSON.stringify(data.user));
 
-            // Redirect according to role
             if (data.user.role === "ADMIN") {
                 window.location.href = "admin.html";
-            } 
-            else if (data.user.role === "STAFF") {
+            } else if (data.user.role === "STAFF") {
                 window.location.href = "staff.html";
-            } 
-            else {
+            } else {
                 window.location.href = "customer.html";
             }
 
         } catch (error) {
             console.error("Login error:", error);
-
             alert(
                 error.email?.[0] ||
                 error.password?.[0] ||
